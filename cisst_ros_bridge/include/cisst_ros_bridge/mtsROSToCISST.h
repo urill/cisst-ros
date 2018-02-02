@@ -39,6 +39,7 @@ http://www.cisst.org/cisst/license.txt.
 #include <std_msgs/Bool.h>
 #include <std_msgs/Int32.h>
 #include <std_msgs/String.h>
+#include <std_msgs/Int32MultiArray.h>
 
 #include <geometry_msgs/TransformStamped.h>
 #include <geometry_msgs/PoseStamped.h>
@@ -86,5 +87,7 @@ void mtsROSToCISST(const sensor_msgs::JointState & rosData, prmVelocityJointSet 
 void mtsROSToCISST(const cisst_msgs::vctDoubleVec & rosData, prmPositionJointSet & cisstData);
 void mtsROSToCISST(const cisst_msgs::vctDoubleVec & rosData, vctDoubleVec & cisstData);
 void mtsROSToCISST(const cisst_msgs::prmCartesianImpedanceGains & rosData, prmCartesianImpedanceGains & cisstData);
+void mtsROSToCISST(const std_msgs::Int32MultiArray & rosData, vctIntVec & cisstData);
+void mtsROSToCISST(const std_msgs::Float64MultiArray &rosData, vctDoubleVec &cisstData);
 
 #endif // _mtsROSToCISST_h

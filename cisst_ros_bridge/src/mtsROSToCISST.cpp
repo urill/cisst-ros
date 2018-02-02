@@ -17,6 +17,7 @@ http://www.cisst.org/cisst/license.txt.
 
 */
 
+#include <std_msgs/Float64MultiArray.h>
 #include "cisst_ros_bridge/mtsROSToCISST.h"
 
 void mtsROSToCISST(const std_msgs::Float32 & rosData, double & cisstData)
@@ -240,4 +241,20 @@ void mtsROSToCISST(const cisst_msgs::prmCartesianImpedanceGains & rosData,
                   cisstData.TorqueBiasPos());
     mtsROSToCISST(rosData.TorqueBiasNeg,
                   cisstData.TorqueBiasNeg());
+}
+
+void mtsROSToCISST(const std_msgs::Int32MultiArray &rosData, vctIntVec &cisstData) {
+    const size_t size = rosData.data.size();
+    cisstData.resize(size);
+    for (size_t i = 0; i < size; ++i) {
+        cisstData.Element(i) = rosData.data[i];
+    }
+}
+
+void mtsROSToCISST(const std_msgs::Float64MultiArray &rosData, vctDoubleVec &cisstData) {
+    const size_t size = rosData.data.size();
+    cisstData.resize(size);
+    for (size_t i = 0; i < size; ++i) {
+        cisstData.Element(i) = rosData.data[i];
+    }
 }
