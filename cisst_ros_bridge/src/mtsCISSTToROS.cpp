@@ -481,3 +481,20 @@ void mtsCISSTToROS(const mtsIntervalStatistics & cisstData,
     rosData.MinComputeTime = cisstData.MinComputeTime();
     rosData.MaxComputeTime = cisstData.MaxComputeTime();
 }
+
+void mtsCISSTToROS(const vctIntVec &cisstData, std_msgs::Int32MultiArray &rosData) {
+    rosData.layout.dim.resize(2);
+    rosData.layout.dim[0].label  = "rows";
+    rosData.layout.dim[0].size   = 1;
+    rosData.layout.dim[0].stride = 1;
+    rosData.layout.dim[1].label  = "cols";
+    rosData.layout.dim[1].size   = cisstData.size();
+    rosData.layout.dim[1].stride = 1;
+    rosData.layout.data_offset = 0;
+    const size_t size = cisstData.size();
+    if (size != 0) {
+        rosData.data.resize(size);
+        std::copy(cisstData.begin(), cisstData.end(),
+                  rosData.data.begin());
+    }
+}

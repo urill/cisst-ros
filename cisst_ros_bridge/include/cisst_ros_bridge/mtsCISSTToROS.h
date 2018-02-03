@@ -59,6 +59,7 @@ http://www.cisst.org/cisst/license.txt.
 #include <cisst_msgs/prmCartesianImpedanceGains.h>
 #include <cisst_msgs/mtsIntervalStatistics.h>
 #include <cisst_msgs/BoolStamped.h>
+#include <std_msgs/Int32MultiArray.h>
 
 // helper functions
 template <typename _cisstFrame>
@@ -124,6 +125,7 @@ void mtsCISSTToROS(const prmEventButton & cisstData, cisst_msgs::BoolStamped & r
 void mtsCISSTToROS(const prmEventButton & cisstData, sensor_msgs::Joy & rosData);
 void mtsCISSTToROS(const vctDoubleVec & cisstData, std_msgs::Float64MultiArray & rosData);
 void mtsCISSTToROS(const vctDoubleMat & cisstData, std_msgs::Float64MultiArray & rosData);
+void mtsCISSTToROS(const vctIntVec & cisstData, std_msgs::Int32MultiArray & rosData);
 
 // geometry_msgs
 void mtsCISSTToROS(const prmPositionCartesianGet & cisstData, geometry_msgs::Transform & rosData);
